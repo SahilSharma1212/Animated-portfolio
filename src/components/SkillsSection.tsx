@@ -8,6 +8,7 @@ import {
 } from "react-icons/si";
 import { MdDashboard, MdMemory } from "react-icons/md";
 import { motion } from 'framer-motion';
+import { GiToken } from "react-icons/gi";
 
 
 const categorizedSkills = {
@@ -63,6 +64,11 @@ const categorizedSkills = {
       icon: <SiSecurityscorecard size={40} className="text-white" />,
       expertise: "Proficient"
     },
+    {
+      name: "JWT",
+      icon: <GiToken size={40} className="text-blue-400" />,
+      expertise: "Advanced"
+    }
   ],
   "Programming Languages": [
     {
@@ -142,37 +148,41 @@ export default function SkillsSection() {
 
       <div className="relative">
         {/* Vertical Line */}
-        <div className="absolute left-1/2 top-0 h-full w-1 bg-gradient-to-b from-slate-500/25 to-slate-500/25 transform -translate-x-1/2 z-0" />
+        <div className="absolute left-1/2 top-0 h-full w-1 bg-gradient-to-b from-slate-500/25 to-slate-500/25 transform -translate-x-1/2 z-0 max-md:hidden" />
 
-        <div className="flex flex-col gap-32 relative">
+        <div className="flex flex-col md:gap-32 gap-16 md:relative max-md:items-center">
           {entries.map(([category, skills], idx) => {
             const isLeft = idx % 2 === 0;
 
             return (
-              <div key={category} className="relative h-fit min-h-[140px]">
+              <div key={category} className="md:relative h-fit min-h-[140px]">
                 {/* Dot */}
                 <motion.div
                   initial={{ y: -4, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   transition={{ duration: 0.5, ease: "easeInOut" }}
-                  className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-gradient-to-br from-slate-500/25 to-gray-600/25 via-neutral-600/25 rounded-full border-4 border-[#0c0c15] z-10 shadow shadow-blue-200"
+                  className="md:absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-gradient-to-br from-slate-500/25 to-gray-600/25 via-neutral-600/25 rounded-full border-4 border-[#0c0c15] z-10 shadow shadow-blue-200 max-md:hidden"
                 />
 
                 {/* Skill Block */}
                 <motion.div
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
-                  viewport={{ once: true, amount: 0.5 }}
-                  className={`absolute top-0 max-w-xs px-8 bg-gradient-to-br from-slate-500/10 border border-neutral-700 to-gray-600/10 via-neutral-600/10 py-3 rounded-xl pb-6 backdrop-blur-sm shadow-lg shadow-blue-400/10
-                    ${isLeft
-                      ? "left-[calc(50%-1.5rem)] -translate-x-full text-left"
-                      : "left-[calc(50%+1.5rem)] text-right"
-                    } md:w-fit w-[90%] min-w-64`}
-                >
+  initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6, ease: "easeOut" }}
+  viewport={{ once: true, amount: 0.5 }}
+  className={`md:absolute top-0 max-w-xs px-8 py-3 pb-6 rounded-xl border border-neutral-700 shadow-lg shadow-blue-400/10
+    backdrop-blur-sm bg-gradient-to-br from-slate-500/10 to-gray-600/10 via-neutral-600/10
+    md:w-fit w-full
+    ${isLeft
+      ? "md:left-[calc(50%-1.5rem)] md:-translate-x-full md:text-left"
+      : "md:left-[calc(50%+1.5rem)] md:text-right"
+    }
+    max-md:ml-6 max-md:text-left`}
+>
+
 
                   <h3 className="text-xl font-semibold text-slate-200 mb-4 text-center">{category}</h3>
-                  <div className="flex flex-wrap justify-center gap-8 px-2">
+                  <div className="flex flex-wrap justify-center md:justify-center gap-8 px-2 max-md:flex-col max-md:items-center">
                     {skills.map((skill, i) => (
                       <div
                         key={i}

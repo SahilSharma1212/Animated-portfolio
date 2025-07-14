@@ -10,6 +10,8 @@ import CollegeInfo, { BioInfo, BranchInfo, TypeWriterEffect } from './InfoPage';
 import SkillsSection from './SkillsSection';
 import ProjectsSection from './ProjectsSection';
 import { motion } from "motion/react"
+
+
 function ParallaxCameraRig() {
     const { camera } = useThree();
     const mouse = useRef({ x: 0, y: 0 });
@@ -149,10 +151,10 @@ function SocialMediaIconsRow() {
   `;
 
     return (
-        <div className="flex items-center gap-6 mt-6">
+        <div className="flex max-xl:justify-center items-center gap-6 mt-6 max-md:mt-4">
             <div className="flex items-center gap-6 mt-6">
                 <a href="https://github.com/SahilSharma1212?tab=repositories" target="_blank" rel="noopener noreferrer" className="group relative">
-                    <FaGithub className="text-[#6e5494] text-2xl transition-transform duration-300 transform hover:scale-110" />
+                    <FaGithub className="text-[#6e5494] text-2xl transition-transform duration-300 transform hover:scale-110 " />
                     <div className={tooltipStyle}>GitHub</div>
                 </a>
 
@@ -201,36 +203,50 @@ function StarFieldWithLight() {
             </div>
 
             {/* 🔵 Sidebar */}
-            <nav className="fixed top-1/2 -translate-y-1/2 left-5 z-50 bg-gradient-to-br from-gray-500/10 to-slate-600/10 backdrop-blur-sm rounded-2xl px-3 py-6 shadow-lg border border-white/10 hover:w-30 w-12 transition-all overflow-x-hidden">
-                <ul className="flex justify-between items-start text-sm md:text-base text-gray-400 flex-col gap-7 pl-1">
-                    <li className="hover:text-white cursor-pointer flex items-center justify-start gap-4 font-semibold transition-all"><IoHomeOutline /> <p>About</p></li>
-                    <li className="hover:text-white cursor-pointer flex items-center justify-start gap-4 font-semibold transition-all"><GrProjects /><p>Projects</p></li>
-                    <li className="hover:text-white cursor-pointer flex items-center justify-start gap-4 font-semibold transition-all"><IoBookOutline /><p>Skills</p></li>
-                    <li className="hover:text-white cursor-pointer flex items-center justify-start gap-4 font-semibold transition-all"><IoCallOutline /><p>Contact</p></li>
+            <nav className="fixed top-1/2 -translate-y-1/2 md:left-5 max-md:top-14 max-md:left-1/2 max-md:-translate-left-1/2 max-md:flex-row z-50 bg-gradient-to-br from-gray-500/10 to-slate-600/10 backdrop-blur-sm rounded-2xl px-3 py-6 shadow-lg border border-white/10 md:hover:w-30 md:w-12 transition-all overflow-x-hidden max-xl:hidden">
+                <ul className="flex justify-between items-start text-sm md:text-base text-gray-400 md:flex-col gap-7 pl-1">
+                    <li className="hover:text-white cursor-pointer flex items-center justify-start gap-4 font-semibold transition-all"><IoHomeOutline /> <p className='max-md:hidden'>About</p></li>
+                    <li className="hover:text-white cursor-pointer flex items-center justify-start gap-4 font-semibold transition-all"><GrProjects /><p className='max-md:hidden'>Projects</p></li>
+                    <li className="hover:text-white cursor-pointer flex items-center justify-start gap-4 font-semibold transition-all"><IoBookOutline /><p className='max-md:hidden'>Skills</p></li>
+                    <li className="hover:text-white cursor-pointer flex items-center justify-start gap-4 font-semibold transition-all"><IoCallOutline /><p className='max-md:hidden'>Contact</p></li>
                 </ul>
             </nav>
 
             {/* 🔵 HERO Section */}
-            <div className='relative z-10'>
+            <div className='md:relative z-10 '>
 
 
-                <section className="min-h-screen flex items-center justify-evenly px-8 bg-transparent">
-                    <div className="text-white max-w-sm mr-10">
-                        <h1 className="text-4xl font-bold mb-4">👋 Welcome to My Portfolio</h1>
-                        <p className="text-lg text-gray-300">
+                <nav className=" z-50 flex justify-center py-5 xl:hidden">
+                    <ul className="justify-between items-start text-sm text-gray-400  backdrop-blur-sm  bg-gradient-to-br from-gray-500/10 to-slate-600/10 gap-7 inline-flex rounded-2xl px-6 py-6 shadow-lg border border-white/10 ">
+                        <li className="hover:text-white cursor-pointer flex items-center justify-start gap-4 font-semibold transition-all"><IoHomeOutline /> <p className='max-md:hidden'>About</p></li>
+                        <li className="hover:text-white cursor-pointer flex items-center justify-start gap-4 font-semibold transition-all"><GrProjects /><p className='max-md:hidden'>Projects</p></li>
+                        <li className="hover:text-white cursor-pointer flex items-center justify-start gap-4 font-semibold transition-all"><IoBookOutline /><p className='max-md:hidden'>Skills</p></li>
+                        <li className="hover:text-white cursor-pointer flex items-center justify-start gap-4 font-semibold transition-all"><IoCallOutline /><p className='max-md:hidden'>Contact</p></li>
+                    </ul>
+                </nav>
+                {/* profile */}
+                <section className="md:min-h-screen flex max-xl:flex-col items-center justify-evenly px-8 bg-transparent max-md:gap-14">
+
+                    {/* bio and icons */}
+                    <div className="text-white max-w-sm mr-10 max-md:mt-10 items-center max-xl:flex-col max-md:flex">
+                        <h1 className="text-4xl font-bold mb-4 max-md:text-center">👋 Welcome to My Portfolio</h1>
+                        <p className="text-lg text-gray-300 max-md:text-center">
                             I’m Sahil Sharma — building intelligent interfaces, futuristic designs, and scalable web solutions.
                         </p>
                         <SocialMediaIconsRow />
                     </div>
 
-                    <div className="relative w-80 h-[420px] ml-10">
+                    {/* profile */}
+                    <div className="md:relative w-80 h-[420px] max-xl:mt-20 max-lg:mt-0 md:ml-10 max-md:min-h-[850px] max-md:flex max-md:flex-col max-md:gap-4 max-md:items-center">
                         <ProfileCard />
-                        <div className="absolute -bottom-10 -left-64 z-20"><BioInfo /></div>
-                        <div className="absolute top-10 -right-42 z-20"><CollegeInfo /></div>
-                        <div className="absolute bottom-20 -right-52 z-20"><BranchInfo /></div>
-                        <div className="absolute -top-12 -left-32 z-20"><TypeWriterEffect /></div>
+                        <div className="md:absolute md:-top-12 md:-left-32 md:z-20 "><TypeWriterEffect /></div>
+                        <div className="md:absolute md:-bottom-10 md:-left-64 md:z-20"><BioInfo /></div>
+                        <div className="md:absolute md:top-10 md:-right-42 md:z-20"><CollegeInfo /></div>
+                        <div className="md:absolute md:bottom-20 md:-right-52 md:z-20"><BranchInfo /></div>
                     </div>
+
                 </section>
+
 
                 <section className="px-6 py-20 bg-transparent 2xl:mx-44 xl:mx-40 relative overflow-hidden">
 
@@ -292,6 +308,8 @@ function StarFieldWithLight() {
                             <SkillsSection />
                         </div>
                     </div>
+
+
                 </section>
 
 
@@ -299,7 +317,7 @@ function StarFieldWithLight() {
                     <ProjectsSection />
                 </section>
             </div>
-           
+
 
 
         </div>

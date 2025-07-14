@@ -28,7 +28,7 @@ function App() {
       </motion.div>
 
       <motion.div
-        className="hero-section"
+        className="hero-section max-w-screen overflow-x-hidden"
         initial={{ y: 440, opacity: 0 }}
         animate={{ y: introVisibility ? 440 : 0, opacity: introVisibility ? 0 : 1 }}
         transition={{ duration: 0.5 }}
