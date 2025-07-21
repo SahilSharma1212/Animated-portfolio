@@ -9,14 +9,14 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIntroVisibility(false);
-    }, 1500);
+    }, 3000);
 
     // Cleanup the timer on component unmount
     return () => clearTimeout(timer);
   }, []);
 
   return (
-    <>
+    <div className=" bg-gradient-to-b from-gray-950 via-slate-950 to-[hsl(240,27%,6%)]">
       <motion.div
         className="intro-section"
         initial={{ y: 440, opacity: 1 }}
@@ -36,7 +36,7 @@ function App() {
       >
         <HeroSectionPage/>
       </motion.div>
-    </>
+    </div>
   );
 }
 

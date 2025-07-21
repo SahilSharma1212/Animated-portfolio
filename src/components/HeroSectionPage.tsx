@@ -143,6 +143,10 @@ function FloatingGlowBlobs({ count = 8 }) {
 
 function SocialMediaIconsRow() {
 
+    function downloadResume(){
+
+    }
+
     const tooltipStyle = `
     absolute -bottom-12 left-1/2 -translate-x-1/2
     bg-gray-800 text-white text-sm px-2 py-1 rounded
@@ -174,7 +178,7 @@ function SocialMediaIconsRow() {
                 </a>
                 <a href="#" target="_blank" className="group relative">
                     <IoDocument className="text-gray-200 text-2xl transition-transform duration-300 transform hover:scale-110" />
-                    <div className={tooltipStyle}>Resume</div>
+                    <div className={tooltipStyle} onClick={downloadResume}>Download Resume</div>
                 </a>
             </div>
 
